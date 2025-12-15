@@ -1,0 +1,57 @@
+<img src="images/nus_logo.png" alt="nus logo" align="right" height="80" />
+
+# PX4_Param_Modify
+
+## 概述
+该教程为命令行方式修改PX4飞控PID控制参数教程，给出的控制参数适用于带球笼桨保的 **J30（非凸-α）** 无人机，这套参数也同时适用于去掉桨保的J30。\
+球笼桨保使用说明书详见：[球笼桨保说明书](球笼桨保说明书.pdf)。 \
+需要修改的参数如下表所示：
+<div align="center">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">参数功能</th>
+<th style="text-align:center">参数值</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">MC_ROLLRATE_D</td><td style="text-align:center">横滚角速度控制D项增益</td><td style="text-align:center">0.0012</td></tr>
+<tr><td style="text-align:center">MC_PITCHRATE_D</td><td style="text-align:center">俯仰角速度控制D项增益</td><td style="text-align:center">0.0012</td></tr>
+<tr><td style="text-align:center">IMU_GYRO_NF0_BW</td><td style="text-align:center">角速度陷波滤波器0的带宽</td><td style="text-align:center">5</td></tr>
+<tr><td style="text-align:center">IMU_GYRO_NF0_FRQ</td><td style="text-align:center">角速度陷波滤波器0的频率</td><td style="text-align:center">21</td></tr>
+<tr><td style="text-align:center">IMU_GYRO_NF1_BW</td><td style="text-align:center">角速度陷波滤波器1的带宽</td><td style="text-align:center">5</td></tr>
+<tr><td style="text-align:center">IMU_GYRO_NF1_FRQ</td><td style="text-align:center">角速度陷波滤波器1的频率</td><td style="text-align:center">28</td></tr>
+<tr><td style="text-align:center">IMU_DGYRO_CUTOFF</td><td style="text-align:center">角速度给D项用的低通滤波的截止频率</td><td style="text-align:center">30</td></tr>
+<tr><td style="text-align:center">IMU_GYRO_CUTOFF</td><td style="text-align:center">角速度低通滤波的截止频率</td><td style="text-align:center">35</td></tr>
+</tbody>
+</table>
+</div>
+
+
+## 修改步骤
+
+### 1. 启动mavros
+```
+sudo chmod 777 /dev/tty*
+roslaunch mavros px4.launch
+```
+
+### 2. 修改方式一：使用一键修改脚本
+```
+git clone https://github.com/DifferentialRobotics/PX4_Param_Modify.git
+cd PX4_Param_Modify
+./set_px4_param.sh
+```
+
+### 3. 修改方式2：使用命令行依次修改参数
+```
+rosservice call /mavros/param/set "{param_id: 'MC_ROLLRATE_D', value: {integer: 0, real: 0.0012}}"
+rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_D', value: {integer: 0, real: 0.0012}}"
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF0_BW', value: {integer: 0, real: 5.0}}"
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF0_FRQ', value: {integer: 0, real: 21.0}}"
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF1_BW', value: {integer: 0, real: 5.0}}"
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF1_FRQ', value: {integer: 0, real: 28.0}}"
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_CUTOFF', value: {integer: 0, real: 35.0}}"
+rosservice call /mavros/param/set "{param_id: 'IMU_DGYRO_CUTOFF', value: {integer: 0, real: 30.0}}"
+```
