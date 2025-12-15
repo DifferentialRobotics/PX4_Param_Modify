@@ -44,7 +44,7 @@ cd PX4_Param_Modify
 ./set_px4_param.sh
 ```
 
-### 3. 修改方式2：使用命令行依次修改参数
+### 3. 修改方式二：使用命令行依次修改参数
 ```
 rosservice call /mavros/param/set "{param_id: 'MC_ROLLRATE_D', value: {integer: 0, real: 0.0012}}"
 rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_D', value: {integer: 0, real: 0.0012}}"
