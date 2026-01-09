@@ -56,15 +56,3 @@ git clone https://github.com/DifferentialRobotics/PX4_Param_Modify.git
 cd PX4_Param_Modify
 ./set_px4_param.sh
 ```
-
-### 3. 修改方式二：使用命令行依次修改参数
-```
-rosservice call /mavros/param/set "{param_id: 'MC_ROLLRATE_D', value: {integer: 0, real: 0.0012}}"
-rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_D', value: {integer: 0, real: 0.0012}}"
-rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF0_BW', value: {integer: 0, real: 5.0}}"
-rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF0_FRQ', value: {integer: 0, real: 21.0}}"
-rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF1_BW', value: {integer: 0, real: 5.0}}"
-rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_NF1_FRQ', value: {integer: 0, real: 28.0}}"
-rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_CUTOFF', value: {integer: 0, real: 35.0}}"
-rosservice call /mavros/param/set "{param_id: 'IMU_DGYRO_CUTOFF', value: {integer: 0, real: 30.0}}"
-```
