@@ -14,6 +14,15 @@ else
     echo "  ✗ MC_ROLLRATE_D 设置失败"
 fi
 
+# 设置 MC_ROLLRATE_I
+echo "设置 MC_ROLLRATE_I..."
+rosservice call /mavros/param/set "{param_id: 'MC_ROLLRATE_I', value: {integer: 0, real: 0.1}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_ROLLRATE_I 设置成功"
+else
+    echo "  ✗ MC_ROLLRATE_I 设置失败"
+fi
+
 # 设置 MC_PITCHRATE_D
 echo "设置 MC_PITCHRATE_D..."
 rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_D', value: {integer: 0, real: 0.0012}}"
@@ -21,6 +30,69 @@ if [ $? -eq 0 ]; then
     echo "  ✓ MC_PITCHRATE_D 设置成功"
 else
     echo "  ✗ MC_PITCHRATE_D 设置失败"
+fi
+
+# 设置 MC_PITCHRATE_I
+echo "设置 MC_PITCHRATE_I..."
+rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_I', value: {integer: 0, real: 0.1}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_PITCHRATE_I 设置成功"
+else
+    echo "  ✗ MC_PITCHRATE_I 设置失败"
+fi
+
+# 设置 MC_PITCHRATE_K
+echo "设置 MC_PITCHRATE_K..."
+rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_K', value: {integer: 0, real: 0.9}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_PITCHRATE_K 设置成功"
+else
+    echo "  ✗ MC_PITCHRATE_K 设置失败"
+fi
+
+# 设置 MC_PITCHRATE_P
+echo "设置 MC_PITCHRATE_P..."
+rosservice call /mavros/param/set "{param_id: 'MC_PITCHRATE_P', value: {integer: 0, real: 0.08}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_PITCHRATE_P 设置成功"
+else
+    echo "  ✗ MC_PITCHRATE_P 设置失败"
+fi
+
+# 设置 MC_YAW_P
+echo "设置 MC_YAW_P..."
+rosservice call /mavros/param/set "{param_id: 'MC_YAW_P', value: {integer: 0, real: 0.25}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_YAW_P 设置成功"
+else
+    echo "  ✗ MC_YAW_P 设置失败"
+fi
+
+# 设置 MC_YAWRATE_K
+echo "设置 MC_YAWRATE_K..."
+rosservice call /mavros/param/set "{param_id: 'MC_YAWRATE_K', value: {integer: 0, real: 0.8}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_YAWRATE_K 设置成功"
+else
+    echo "  ✗ MC_YAWRATE_K 设置失败"
+fi
+
+# 设置 MC_YAWRATE_I
+echo "设置 MC_YAWRATE_I..."
+rosservice call /mavros/param/set "{param_id: 'MC_YAWRATE_I', value: {integer: 0, real: 0.05}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_YAWRATE_I 设置成功"
+else
+    echo "  ✗ MC_YAWRATE_I 设置失败"
+fi
+
+# 设置 MC_YAWRATE_D
+echo "设置 MC_YAWRATE_D..."
+rosservice call /mavros/param/set "{param_id: 'MC_YAWRATE_D', value: {integer: 0, real: 0}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ MC_YAWRATE_D 设置成功"
+else
+    echo "  ✗ MC_YAWRATE_D 设置失败"
 fi
 
 # 设置 IMU_GYRO_NF0_BW
@@ -75,6 +147,33 @@ if [ $? -eq 0 ]; then
     echo "  ✓ IMU_DGYRO_CUTOFF 设置成功"
 else
     echo "  ✗ IMU_DGYRO_CUTOFF 设置失败"
+fi
+
+# 设置 IMU_GYRO_DNF_BW
+echo "设置 IMU_GYRO_DNF_BW..."
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_DNF_BW', value: {integer: 0, real: 10.0}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ IMU_GYRO_DNF_BW 设置成功"
+else
+    echo "  ✗ IMU_GYRO_DNF_BW 设置失败"
+fi
+
+# 设置 IMU_GYRO_DNF_EN
+echo "设置 IMU_GYRO_DNF_EN..."
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_DNF_EN', value: {integer: 3, real: 0.0}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ IMU_GYRO_DNF_EN 设置成功"
+else
+    echo "  ✗ IMU_GYRO_DNF_EN 设置失败"
+fi
+
+# 设置 IMU_GYRO_DNF_MIN
+echo "设置 IMU_GYRO_DNF_MIN..."
+rosservice call /mavros/param/set "{param_id: 'IMU_GYRO_DNF_MIN', value: {integer: 0, real: 30.0}}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ IMU_GYRO_DNF_MIN 设置成功"
+else
+    echo "  ✗ IMU_GYRO_DNF_MIN 设置失败"
 fi
 
 echo "参数设置完成！"
