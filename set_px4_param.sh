@@ -175,5 +175,13 @@ if [ $? -eq 0 ]; then
 else
     echo "  ✗ IMU_GYRO_DNF_MIN 设置失败"
 fi
+# 重启飞控
+echo "重启飞控..."
+rosservice call /mavros/cmd/command "{command: 246, confirmation: 0, param1: 1.0, param2: 0.0, param3: 0.0, param4: 0.0, param5: 0.0, param6: 0.0, param7: 0.0}"
+if [ $? -eq 0 ]; then
+    echo "  ✓ 飞控重启成功"
+else
+    echo "  ✗ 飞控重启失败"
+fi
 
 echo "参数设置完成！"
