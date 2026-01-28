@@ -56,3 +56,6 @@ git clone https://github.com/DifferentialRobotics/PX4_Param_Modify.git
 cd PX4_Param_Modify
 ./set_px4_param.sh
 ```
+
+### 3. 检查雷达盲区是否设置正确
+将`flight_modules/faster-lio/config/mid360.yaml`文件中的`blind`参数设置为`0.5`。
